@@ -8,8 +8,8 @@ function Cube({ cx, cy, w = 46, h = 38, label, sub }: { cx: number; cy: number; 
       <polygon points={left} fill="rgb(var(--tint))" stroke="rgb(var(--accent))" strokeOpacity=".5" />
       <polygon points={right} fill="rgb(var(--panel))" stroke="rgb(var(--accent))" strokeOpacity=".5" />
       <polygon points={top} fill="rgb(var(--accent))" fillOpacity=".85" stroke="rgb(var(--accent))" />
-      <text x={cx} y={cy + w + h + 28} textAnchor="middle" className="fill-white text-[13px] font-semibold">{label}</text>
-      <text x={cx} y={cy + w + h + 45} textAnchor="middle" className="fill-white/50 font-mono text-[10px] uppercase tracking-widest">{sub}</text>
+      <text x={cx} y={cy + w + h + 28} textAnchor="middle" className="fill-fg text-[13px] font-semibold">{label}</text>
+      <text x={cx} y={cy + w + h + 45} textAnchor="middle" className="fill-fg/50 font-mono text-[10px] uppercase tracking-widest">{sub}</text>
     </g>
   );
 }
@@ -34,8 +34,8 @@ export default function SupplyChain() {
     <svg viewBox="0 0 720 400" className="hidden h-auto w-full md:block" role="img" aria-label="Supply chain from import to nationwide distribution">
       <defs>
         <radialGradient id="g" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="rgb(45 212 126)" stopOpacity=".25" />
-          <stop offset="100%" stopColor="rgb(45 212 126)" stopOpacity="0" />
+          <stop offset="0%" style={{ stopColor: "rgb(var(--accent))", stopOpacity: 0.25 }} />
+          <stop offset="100%" style={{ stopColor: "rgb(var(--accent))", stopOpacity: 0 }} />
         </radialGradient>
       </defs>
       <ellipse cx="360" cy="230" rx="340" ry="150" fill="url(#g)" />

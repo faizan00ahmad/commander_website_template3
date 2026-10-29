@@ -76,7 +76,7 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between font-mono text-xs uppercase tracking-widest">
-                  <span className="text-accent">{b.tag}</span><span className="text-fg/45">EST. {b.since}</span>
+                  <span className="text-accent">{b.tag}</span><span className="text-fg/60">EST. {b.since}</span>
                 </div>
                 <h3 className="h-display mt-3 text-2xl">{b.name}</h3>
                 <p className="mt-2 text-sm text-fg/65">{b.short}</p>

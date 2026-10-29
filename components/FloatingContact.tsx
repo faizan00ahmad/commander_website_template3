@@ -6,7 +6,7 @@ export default function FloatingContact() {
     <a
       href={contact.phoneHref}
       aria-label={`Call Commander Group ${contact.phone}`}
-      className="group fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-accent px-4 py-3 text-onaccent shadow-2xl shadow-black/30 transition hover:scale-105 md:pr-5"
+      className="group fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-40 md:bottom-5 md:right-5 flex items-center gap-3 rounded-full bg-accent px-4 py-3 text-onaccent shadow-2xl shadow-black/30 transition hover:scale-105 md:pr-5"
     >
       <span className="relative grid h-6 w-6 place-items-center">
         <span className="absolute inset-0 animate-ping rounded-full bg-onaccent/25" />

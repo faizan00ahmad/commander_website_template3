@@ -43,7 +43,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10 py-5 text-center text-xs text-white/45">
+      <div className="border-t border-white/10 pb-24 pt-5 text-center md:pb-5 text-xs text-white/45">
         © {new Date().getFullYear()} Commander Group. All rights reserved.
       </div>
     </footer>

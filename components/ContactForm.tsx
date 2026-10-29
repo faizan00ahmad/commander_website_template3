@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const field =
-  "w-full rounded-[var(--radius)] border border-line bg-bg px-4 py-3.5 text-sm text-fg outline-none transition placeholder:text-fg/35 focus:border-accent focus:ring-4 focus:ring-accent/15";
+  "w-full rounded-[var(--radius)] border border-line bg-bg px-4 py-3.5 text-base text-fg sm:text-sm outline-none transition placeholder:text-fg/35 focus:border-accent focus:ring-4 focus:ring-accent/15";
 const label = "mb-1.5 block text-xs font-semibold uppercase tracking-widest text-fg/55";
 
 export default function ContactForm() {
