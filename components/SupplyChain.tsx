@@ -22,7 +22,16 @@ export default function SupplyChain() {
     { cx: 610, cy: 120, label: "Distribute", sub: "nationwide" },
   ];
   return (
-    <svg viewBox="0 0 720 400" className="h-auto w-full" role="img" aria-label="Supply chain from import to nationwide distribution">
+    <>
+    <ol className="grid gap-3 md:hidden" aria-label="Supply chain steps">
+      {nodes.map((n, i) => (
+        <li key={n.label} className="flex items-center gap-4 rounded-xl border border-line bg-bg/60 p-4">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-accent/15 font-mono text-sm font-bold text-accent">0{i + 1}</span>
+          <span><span className="block font-semibold">{n.label}</span><span className="block font-mono text-[11px] uppercase tracking-widest text-fg/50">{n.sub}</span></span>
+        </li>
+      ))}
+    </ol>
+    <svg viewBox="0 0 720 400" className="hidden h-auto w-full md:block" role="img" aria-label="Supply chain from import to nationwide distribution">
       <defs>
         <radialGradient id="g" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="rgb(45 212 126)" stopOpacity=".25" />
@@ -47,5 +56,6 @@ export default function SupplyChain() {
       })}
       {nodes.map((n) => <Cube key={n.label} {...n} />)}
     </svg>
+    </>
   );
 }

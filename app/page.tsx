@@ -44,7 +44,7 @@ export default function Home() {
             <Reveal key={s.label} delay={i * 100}>
               <div className="glass glow h-full rounded-[var(--radius)] p-6">
                 <p className="font-mono text-xs uppercase tracking-widest text-fg/50">{s.label}</p>
-                <CountUp value={s.value} className="h-display mt-3 block text-3xl text-accent md:text-4xl" />
+                <CountUp value={s.value} className="h-display mt-3 block whitespace-nowrap text-2xl text-accent sm:text-3xl md:text-4xl" />
                 <div className="mt-4 h-1 overflow-hidden rounded bg-line"><div className="h-full w-2/3 rounded bg-gradient-to-r from-accent to-cyan-300" /></div>
               </div>
             </Reveal>
@@ -101,18 +101,18 @@ export default function Home() {
       <section className="container-x pt-28">
         <SectionHead eyebrow="// Network" title="Distribution network" sub="Authorised LPG distributors in Multan — call directly." />
         <div className="glass overflow-x-auto rounded-[var(--radius)]">
-          <table className="w-full min-w-[520px] text-left text-sm">
+          <table className="w-full sm:min-w-[520px] text-left text-sm">
             <thead className="font-mono text-xs uppercase tracking-widest text-fg/50">
-              <tr><th className="p-4">ID</th><th className="p-4">Distributor</th><th className="p-4">Region</th><th className="p-4">Contact</th><th className="p-4">Status</th></tr>
+              <tr><th className="hidden p-4 sm:table-cell">ID</th><th className="p-4">Distributor</th><th className="hidden p-4 sm:table-cell">Region</th><th className="p-4">Contact</th><th className="hidden p-4 sm:table-cell">Status</th></tr>
             </thead>
             <tbody>
               {distributors.slice(0, 6).map(([n, p], i) => (
                 <tr key={n} className="border-t border-line">
-                  <td className="p-4 font-mono text-fg/40">D-{String(i + 1).padStart(2, "0")}</td>
+                  <td className="hidden p-4 font-mono text-fg/40 sm:table-cell">D-{String(i + 1).padStart(2, "0")}</td>
                   <td className="p-4 font-medium">{n}</td>
-                  <td className="p-4 text-fg/60">Multan</td>
+                  <td className="hidden p-4 text-fg/60 sm:table-cell">Multan</td>
                   <td className="p-4"><a className="text-accent hover:underline" href={`tel:${p.replace(/\s/g, "")}`}>{p}</a></td>
-                  <td className="p-4"><span className="inline-flex items-center gap-2 text-xs text-fg/70"><span className="h-2 w-2 rounded-full bg-accent" />Authorised</span></td>
+                  <td className="hidden p-4 sm:table-cell"><span className="inline-flex items-center gap-2 text-xs text-fg/70"><span className="h-2 w-2 rounded-full bg-accent" />Authorised</span></td>
                 </tr>
               ))}
             </tbody>

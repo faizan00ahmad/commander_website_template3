@@ -29,16 +29,16 @@ export default function Petrogas() {
       <section className="container-x pt-24">
         <SectionHead eyebrow="Network" title="Distributor list" />
         <div className="overflow-x-auto rounded-[var(--radius)] border border-line bg-panel">
-          <table className="w-full min-w-[520px] text-left text-sm">
+          <table className="w-full sm:min-w-[520px] text-left text-sm">
             <thead className="bg-tint text-xs uppercase tracking-wider text-fg/60">
-              <tr><th className="p-4">S.N</th><th className="p-4">Distributor name</th><th className="p-4">Address</th><th className="p-4">Contact number</th></tr>
+              <tr><th className="hidden p-4 sm:table-cell">S.N</th><th className="p-4">Distributor name</th><th className="hidden p-4 sm:table-cell">Address</th><th className="p-4">Contact number</th></tr>
             </thead>
             <tbody>
               {distributors.map(([name, phone], i) => (
                 <tr key={name} className="border-t border-line">
-                  <td className="p-4 text-fg/40">{i + 1}</td>
+                  <td className="hidden p-4 text-fg/40 sm:table-cell">{i + 1}</td>
                   <td className="p-4 font-medium">{name}</td>
-                  <td className="p-4 text-fg/60">Multan</td>
+                  <td className="hidden p-4 text-fg/60 sm:table-cell">Multan</td>
                   <td className="p-4"><a href={`tel:${phone.replace(/\s/g, "")}`} className="font-semibold text-accent hover:underline">{phone}</a></td>
                 </tr>
               ))}
