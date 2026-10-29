@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Img from "@/components/Img";
+import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 import SupplyChain from "@/components/SupplyChain";
 import { SectionHead, Awards, CTA } from "@/components/Blocks";
 import { stats, businesses, certifications, distributors, timeline } from "@/lib/data";
@@ -38,12 +40,14 @@ export default function Home() {
 
       <section className="container-x">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="glass rounded-[var(--radius)] p-6">
-              <p className="font-mono text-xs uppercase tracking-widest text-fg/50">{s.label}</p>
-              <p className="h-display mt-3 text-3xl text-accent md:text-4xl">{s.value}</p>
-              <div className="mt-4 h-1 overflow-hidden rounded bg-line"><div className="h-full w-2/3 rounded bg-accent/70" /></div>
-            </div>
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 100}>
+              <div className="glass glow h-full rounded-[var(--radius)] p-6">
+                <p className="font-mono text-xs uppercase tracking-widest text-fg/50">{s.label}</p>
+                <CountUp value={s.value} className="h-display mt-3 block text-3xl text-accent md:text-4xl" />
+                <div className="mt-4 h-1 overflow-hidden rounded bg-line"><div className="h-full w-2/3 rounded bg-gradient-to-r from-accent to-cyan-300" /></div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -51,12 +55,12 @@ export default function Home() {
       <section id="platform" className="container-x pt-28">
         <SectionHead eyebrow="// Operations" title="Infrastructure, quality and innovation" sub="Everything is built around reliability: from the plant floor to the last-mile distributor." />
         <div className="grid gap-4 md:grid-cols-2">
-          {pillars.map((p) => (
-            <div key={p.k} className="glass rounded-[var(--radius)] p-8 transition hover:border-accent/60">
+          {pillars.map((p, i) => (
+            <Reveal key={p.k} delay={i * 100}><div className="glass glow h-full rounded-[var(--radius)] p-8">
               <span className="font-mono text-sm text-accent">{p.k}</span>
               <h3 className="h-display mt-3 text-2xl">{p.t}</h3>
               <p className="mt-3 text-fg/65">{p.b}</p>
-            </div>
+            </div></Reveal>
           ))}
         </div>
       </section>
@@ -65,7 +69,7 @@ export default function Home() {
         <SectionHead eyebrow="// Business units" title="Three units. One network." />
         <div className="grid gap-4 md:grid-cols-3">
           {businesses.map((b) => (
-            <Link key={b.slug} href={`/${b.slug}`} className="glass group overflow-hidden rounded-[var(--radius)] transition hover:border-accent/60">
+            <Link key={b.slug} href={`/${b.slug}`} className="glass glow group overflow-hidden rounded-[var(--radius)]">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Img name={b.cover} alt={b.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-panel to-transparent" />
@@ -86,7 +90,7 @@ export default function Home() {
         <SectionHead eyebrow="// Quality" title="Certified at every step" />
         <div className="grid gap-4 md:grid-cols-3">
           {certifications.map((c) => (
-            <div key={c.code} className="glass flex items-center gap-5 rounded-[var(--radius)] p-6">
+            <div key={c.code} className="glass glow flex items-center gap-5 rounded-[var(--radius)] p-6">
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-accent/15 font-mono text-sm font-bold text-accent">✓</span>
               <div><p className="h-display text-xl">{c.code}</p><p className="text-sm text-fg/60">{c.label}</p></div>
             </div>
@@ -121,7 +125,7 @@ export default function Home() {
         <SectionHead eyebrow="// Milestones" title="Growth timeline" />
         <ol className="grid gap-4 md:grid-cols-3">
           {timeline.map((t) => (
-            <li key={t.year} className="glass rounded-[var(--radius)] p-6">
+            <li key={t.year} className="glass glow rounded-[var(--radius)] p-6">
               <span className="font-mono text-sm text-accent">{t.year}</span>
               <h3 className="h-display mt-2 text-xl">{t.title}</h3>
               <p className="mt-2 text-sm text-fg/65">{t.body}</p>
